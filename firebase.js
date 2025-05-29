@@ -58,3 +58,27 @@ if (loginForm) {
     }
   });
 }
+// Verificar si hay un usuario logueado al cargar el panel
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    document.getElementById("username").textContent = user.email;
+    document.getElementById("saldo").textContent = "$0.00"; // Puedes actualizar esto luego con datos reales
+  } else {
+    // Si no hay sesión activa, redirige al login
+    window.location.href = "login.html";
+  }
+});
+
+// Función para cerrar sesión
+const logoutBtn = document.getElementById("logout");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async () => {
+    try {
+      await signOut(auth);
+      alert("✅ Sesión cerrada correctamente");
+      window.location.href = "index.html"; // Redirige a la página de inicio
+    } catch (error) {
+      alert("❌ Error al cerrar sesión: " + error.message);
+    }
+  });
+}
