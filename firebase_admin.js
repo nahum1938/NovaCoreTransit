@@ -13,13 +13,14 @@ import {
 
 // Tu configuración de Firebase (REEMPLAZA ESTO POR TU CONFIG REAL)
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_AUTH_DOMAIN",
-  databaseURL: "TU_DATABASE_URL",
-  projectId: "TU_PROJECT_ID",
-  storageBucket: "TU_STORAGE_BUCKET",
-  messagingSenderId: "TU_MESSAGING_SENDER_ID",
-  appId: "TU_APP_ID"
+  apiKey: "AIzaSyCLCNqaO83B7EVNnIQrazocXanW0Q43s7Y",
+  authDomain: "novacoretransit-7ee86.firebaseapp.com",
+  databaseURL: "https://novacoretransit-7ee86-default-rtdb.firebaseio.com",
+  projectId: "novacoretransit-7ee86",
+  storageBucket: "novacoretransit-7ee86.firebasestorage.app",
+  messagingSenderId: "649834732880",
+  appId: "1:649834732880:web:bc8eae809d1161070ea055",
+  measurementId: "G-27WD7PSVQW"
 };
 
 // Inicializa Firebase
@@ -28,7 +29,7 @@ const auth = getAuth(app);
 const db = getDatabase(app);
 
 // Verifica si es administrador
-const adminEmail = "tucorreo@admin.com"; // ← cambia esto por tu correo de admin
+const adminEmail = "rodrigueznahum940@gmail.com"; // ← cambia esto por tu correo de admin
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
