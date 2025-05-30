@@ -103,4 +103,4 @@ if (logoutBtn) {
       alert("❌ Error al cerrar sesión: " + error.message);
     }
   });
-});
+ }
