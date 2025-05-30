@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel de Administrador</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h2>👑 Panel del Administrador</h2>
+  <p>Lista de usuarios registrados:</p>
+  
+  <table border="1" style="width: 80%; margin: 20px auto; border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Saldo</th>
+      </tr>
+    </thead>
+    <tbody id="usuariosTabla">
+      <!-- Los usuarios se cargarán aquí -->
+    </tbody>
+  </table>
+
+  <button id="logoutBtn">Cerrar sesión</button>
+
+  <script type="module" src="firebase_admin.js"></script>
+</body>
+</html>
