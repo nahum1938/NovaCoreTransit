@@ -1,87 +1,53 @@
 
-* {
+body {
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-  background-color: #f4f6f8;
+  background: #f4f6f9;
   color: #333;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
-header .banner {
-  background-color: #003366;
-  color: #fff;
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-header .banner h1 {
-  font-size: 2.5rem;
-}
-
-header .banner p {
-  margin-top: 0.5rem;
-  font-size: 1.1rem;
-}
-
-main {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.card {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  text-align: center;
+.form-container {
   max-width: 400px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.form-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+form input {
+  display: block;
   width: 100%;
-}
-
-.card h2 {
-  margin-bottom: 1rem;
-}
-
-.card p {
-  margin-bottom: 1.5rem;
-}
-
-.btn-group {
-  display: flex;
-  justify-content: space-around;
-  gap: 1rem;
-}
-
-.btn {
-  background-color: #003366;
-  color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  text-decoration: none;
+}
+
+form button {
+  background: #003d99;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
   font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.btn.secondary {
-  background-color: #0055a5;
-}
-
-.btn:hover {
-  background-color: #001f4d;
+form button:hover {
+  background: #002966;
 }
 
 footer {
   text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #666;
+  padding: 16px;
+  font-size: 0.9em;
+  color: #777;
 }

@@ -2,22 +2,25 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Iniciar sesión - NovaCore Transit</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main>
-    <section class="form-section">
+  <main class="form-container">
+    <h1>NovaCore Transit</h1>
+    <p>Bienvenido de nuevo</p>
+    <div class="form-box">
       <h2>Iniciar sesión</h2>
       <form id="loginForm">
         <input type="email" id="email" placeholder="Correo electrónico" required />
         <input type="password" id="password" placeholder="Contraseña" required />
-        <button type="submit">Entrar</button>
+        <button type="submit">Iniciar sesión</button>
       </form>
-      <p>¿Aún no tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
-    </section>
+      <p>¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
+    </div>
   </main>
+  <footer>© 2025 NovaCore Transit. Todos los derechos reservados.</footer>
   <script type="module" src="firebase.js"></script>
 </body>
 </html>
