@@ -2,47 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panel de Usuario - NovaCore Transit</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>NovaCore Transit</h1>
-    <p>Bienvenido, [Nombre del Usuario]</p>
-  </header>
   <main>
-    <section class="dashboard">
-      <h2>Resumen de Cuenta</h2>
-      <p><strong>Saldo Actual:</strong> $[Saldo]</p>
-      <button>Recargar Saldo</button>
-    </section>
-    <section class="history">
-      <h2>Historial de Viajes</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Estación</th>
-            <th>Transporte</th>
-            <th>Saldo Final</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>01/06/2025</td>
-            <td>08:30</td>
-            <td>Centro</td>
-            <td>Metro</td>
-            <td>$15.00</td>
-          </tr>
-        </tbody>
-      </table>
+    <section class="form-section">
+      <h2>Panel de usuario</h2>
+      <p>Hola, <span id="username">usuario</span></p>
+      <p>Saldo actual: <span id="saldo">$0.00</span></p>
+      <button id="logout">Cerrar sesión</button>
     </section>
   </main>
-  <footer>
-    <p>&copy; 2025 NovaCore Transit. Todos los derechos reservados.</p>
-  </footer>
+  <script type="module" src="firebase.js"></script>
 </body>
 </html>

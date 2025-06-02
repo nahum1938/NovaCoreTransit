@@ -3,17 +3,12 @@ console.log("🔥 firebase.js cargado correctamente");
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 import {
   getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
+  createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 import {
   getDatabase,
   ref,
-  set,
-  get,
-  child
+  set
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
 
 const firebaseConfig = {

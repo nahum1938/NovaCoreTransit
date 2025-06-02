@@ -1,56 +1,42 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
+  background-color: #f4f4f4;
   margin: 0;
-  background: #f9f9f9;
+  padding: 0;
 }
 header {
-  background: #0d47a1;
+  background-color: #002F6C;
   color: white;
+  padding: 1em;
   text-align: center;
-  padding: 1em 0;
 }
 main {
-  padding: 2em;
-}
-.form-section, .dashboard, .history {
-  background: white;
-  max-width: 400px;
-  margin: auto;
-  padding: 2em;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-form {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
 }
-input, button {
-  padding: 0.7em;
-  margin: 0.5em 0;
-  font-size: 1em;
+.form-section {
+  background: white;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+form input, form button {
+  display: block;
+  width: 100%;
+  margin: 1em 0;
+  padding: 0.75em;
 }
 button {
-  background: #0d47a1;
+  background-color: #002F6C;
   color: white;
   border: none;
   cursor: pointer;
-}
-button:hover {
-  background: #1565c0;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1em;
-}
-table th, table td {
-  padding: 0.5em;
-  border: 1px solid #ccc;
-  text-align: left;
 }
 footer {
   text-align: center;
   padding: 1em;
   font-size: 0.9em;
-  color: #666;
+  color: gray;
 }
