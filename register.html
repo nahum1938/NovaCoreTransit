@@ -2,49 +2,37 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registrarse - NovaCore Transit</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main>
-    <section class="form-section">
-      <h2>Registrarse</h2>
-      <form id="registerForm">
-        <input type="text" id="name" placeholder="Nombre completo" required />
-        <input type="email" id="email" placeholder="Correo electrónico" required />
-        <input type="password" id="password" placeholder="Contraseña" required />
-        <button type="submit">Registrarse</button>
-      </form>
-      <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
-    </section>
+  <main class="main-box">
+    <h2>Registrarse</h2>
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Nombre completo" required />
+      <input type="email" id="email" placeholder="Correo electrónico" required />
+      <input type="password" id="password" placeholder="Contraseña" required />
+      <button type="submit">Registrarse</button>
+    </form>
+    <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
   </main>
-
-  <script type="module">
-    import { auth } from './firebase.js';
-    import {
-      createUserWithEmailAndPassword,
-      updateProfile
-    } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
-
-    const form = document.getElementById('registerForm');
-
-    form.addEventListener('submit', async (e) => {
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="firebase.js"></script>
+  <script>
+    const auth = firebase.auth();
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
       e.preventDefault();
-
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
-
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        await updateProfile(userCredential.user, { displayName: name });
-        alert("Registro exitoso 🎉");
-        window.location.href = 'panel.html';
-      } catch (error) {
-        alert("❌ Error: " + error.message);
-        console.error(error);
-      }
+      auth.createUserWithEmailAndPassword(email, password)
+        .then(userCredential => {
+          return userCredential.user.updateProfile({ displayName: name });
+        })
+        .then(() => window.location.href = "panel.html")
+        .catch(error => alert("❌ Error: " + error.message));
     });
   </script>
 </body>
