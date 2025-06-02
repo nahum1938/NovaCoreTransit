@@ -7,45 +7,45 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main>
-    <section class="form-section">
-      <h2>Registrarse</h2>
-      <form id="registerForm">
-        <input type="text" id="name" placeholder="Nombre completo" required />
-        <input type="email" id="email" placeholder="Correo electrónico" required />
-        <input type="password" id="password" placeholder="Contraseña" required />
-        <button type="submit">Registrarse</button>
-      </form>
-      <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
-    </section>
+  <main class="form-container">
+    <h2>Registrarse</h2>
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Nombre completo" required />
+      <input type="email" id="email" placeholder="Correo electrónico" required />
+      <input type="password" id="password" placeholder="Contraseña" required />
+      <button type="submit">Registrarse</button>
+    </form>
+    <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
   </main>
-
+  <script type="module" src="firebase.js"></script>
   <script type="module">
-    import { auth } from './firebase.js';
-    import {
-      createUserWithEmailAndPassword,
-      updateProfile
-    } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+    import { auth, db } from './firebase.js';
+    import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+    import { ref, set } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
 
-    const form = document.getElementById('registerForm');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        await updateProfile(userCredential.user, { displayName: name });
-        alert("Registro exitoso 🎉");
-        window.location.href = 'panel.html';
-      } catch (error) {
-        alert("❌ Error: " + error.message);
-        console.error(error);
-      }
-    });
+    const registerForm = document.getElementById("registerForm");
+    if (registerForm) {
+      registerForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+          await set(ref(db, 'usuarios/' + user.uid), {
+            nombre: name,
+            correo: email,
+            saldo: 0.00
+          });
+          alert("✅ Usuario registrado con éxito");
+          registerForm.reset();
+          window.location.href = "login.html";
+        } catch (error) {
+          alert("❌ Error al registrar: " + error.message);
+        }
+      });
+    }
   </script>
 </body>
 </html>
