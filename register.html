@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,15 +8,17 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="main-box">
-    <h2>Registrarse</h2>
-    <form id="registerForm">
-      <input type="text" id="name" placeholder="Nombre completo" required />
-      <input type="email" id="email" placeholder="Correo electrónico" required />
-      <input type="password" id="password" placeholder="Contraseña" required />
-      <button type="submit">Registrarse</button>
-    </form>
-    <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+  <main>
+    <section class="form-section">
+      <h2>Registrarse</h2>
+      <form id="registerForm">
+        <input type="text" id="name" placeholder="Nombre completo" required />
+        <input type="email" id="email" placeholder="Correo electrónico" required />
+        <input type="password" id="password" placeholder="Contraseña" required />
+        <button type="submit">Registrarse</button>
+      </form>
+      <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+    </section>
   </main>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
@@ -32,7 +35,7 @@
           return userCredential.user.updateProfile({ displayName: name });
         })
         .then(() => window.location.href = "panel.html")
-        .catch(error => alert("❌ Error: " + error.message));
+        .catch(error => alert("Error: " + error.message));
     });
   </script>
 </body>

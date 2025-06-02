@@ -1,3 +1,4 @@
+
 const firebaseConfig = {
   apiKey: "AIzaSyCLCNqa0B387EVNnIQrazoXanW0Q43s7Y",
   authDomain: "novacoretransit-7ee86.firebaseapp.com",
