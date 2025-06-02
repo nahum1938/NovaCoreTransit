@@ -1,94 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Registrarse - NovaCore Transit</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background-color: #f4f6f8;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-    }
-    header {
-      width: 100%;
-      background-color: #002366;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-    }
-    .container {
-      background: white;
-      padding: 30px;
-      margin-top: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      max-width: 400px;
-      width: 100%;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #002366;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      padding: 10px;
-      background-color: #002366;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    button:hover {
-      background-color: #001a4d;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
     <h1>NovaCore Transit</h1>
-    <p>Control inteligente de transporte público</p>
+    <p>Crea tu cuenta para empezar</p>
   </header>
-  <div class="container">
-    <h2>Registro de Tarjeta</h2>
-    <form>
-      <input type="text" placeholder="Nombre completo" required>
-      <input type="email" placeholder="Correo electrónico" required>
-      <input type="password" placeholder="Contraseña" required>
-      <button type="submit">Registrarse</button>
-    </form>
-  </div>
+  <main>
+    <section class="form-section">
+      <h2>Registrarse</h2>
+      <form>
+        <input type="text" placeholder="Nombre completo" required>
+        <input type="email" placeholder="Correo electrónico" required>
+        <input type="password" placeholder="Contraseña" required>
+        <button type="submit">Registrarse</button>
+      </form>
+      <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+    </section>
+  </main>
   <footer>
-    © 2025 NovaCore Transit. Todos los derechos reservados.
+    <p>&copy; 2025 NovaCore Transit. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
