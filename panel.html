@@ -2,14 +2,60 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Panel de Usuario - NovaCore Transit</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="form-container">
     <h2>Panel del Usuario</h2>
-    <p>Bienvenido, tu sesión está activa.</p>
+    <p id="user-info">Cargando información...</p>
+    <button id="logoutBtn">Cerrar sesión</button>
   </main>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { auth, db } from './firebase.js';
+    import {
+      onAuthStateChanged,
+      signOut
+    } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js';
+    import {
+      ref,
+      get,
+      child
+    } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js';
+
+    const userInfo = document.getElementById('user-info');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const uid = user.uid;
+        try {
+          const snapshot = await get(child(ref(db), 'usuarios/' + uid));
+          if (snapshot.exists()) {
+            const data = snapshot.val();
+            userInfo.innerHTML = `
+              Bienvenido, <strong>${data.nombre}</strong><br>
+              Tu saldo actual es: <strong>$${data.saldo.toFixed(2)}</strong>
+            `;
+          } else {
+            userInfo.textContent = "No se encontró información del usuario.";
+          }
+        } catch (error) {
+          userInfo.textContent = "Error al cargar la información del usuario.";
+        }
+      } else {
+        // Redirige si no hay sesión
+        window.location.href = "login.html";
+      }
+    });
+
+    logoutBtn.addEventListener("click", async () => {
+      await signOut(auth);
+      window.location.href = "index.html";
+    });
+  </script>
 </body>
 </html>
