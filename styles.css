@@ -1,49 +1,58 @@
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f3f4f6;
 }
 header {
-  background-color: #003399;
+  background-color: #002f6c;
   color: white;
   padding: 1rem;
   text-align: center;
 }
 main {
   padding: 2rem;
-  display: flex;
-  justify-content: center;
 }
-.container, .form-section {
-  background-color: white;
+.form-section, .welcome-box, .panel {
+  max-width: 400px;
+  margin: auto;
+  background: white;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-h2 {
-  margin-top: 0;
-}
-input {
+input, button {
   display: block;
   width: 100%;
+  margin-top: 1rem;
   padding: 0.5rem;
-  margin: 0.5rem 0;
+  font-size: 1rem;
 }
-.button, button {
-  background-color: #003399;
+button {
+  background-color: #002f6c;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  margin: 0.5rem 0.25rem;
-  text-decoration: none;
-  display: inline-block;
   cursor: pointer;
+}
+button:hover {
+  background-color: #0146a6;
 }
 footer {
   text-align: center;
-  font-size: 0.875rem;
   padding: 1rem;
+  font-size: 0.9rem;
   color: #666;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.btn {
+  text-decoration: none;
+  background: #002f6c;
+  color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 4px;
 }
