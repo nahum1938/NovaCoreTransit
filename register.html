@@ -1,32 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Registrarse - NovaCore Transit</title>
-  <link rel="stylesheet" href="assets/style.css" />
-  <script type="module" src="firebase.js"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>NovaCore Transit</h1>
-    <p>Crea tu cuenta para empezar</p>
-  </header>
   <main>
-    <section class="card">
+    <section class="form-section">
       <h2>Registrarse</h2>
       <form id="registerForm">
         <input type="text" id="name" placeholder="Nombre completo" required />
         <input type="email" id="email" placeholder="Correo electrónico" required />
         <input type="password" id="password" placeholder="Contraseña" required />
-        <button type="submit" class="btn">Registrarse</button>
+        <button type="submit">Registrarse</button>
       </form>
       <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
     </section>
   </main>
-  <footer>
-    <p>&copy; 2025 NovaCore Transit. Todos los derechos reservados.</p>
-  </footer>
+
+  <script type="module">
+    import { auth } from './firebase.js';
+    import {
+      createUserWithEmailAndPassword,
+      updateProfile
+    } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+
+    const form = document.getElementById('registerForm');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await updateProfile(userCredential.user, { displayName: name });
+        alert("Registro exitoso 🎉");
+        window.location.href = 'panel.html';
+      } catch (error) {
+        alert("❌ Error: " + error.message);
+        console.error(error);
+      }
+    });
+  </script>
 </body>
 </html>
