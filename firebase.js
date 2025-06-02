@@ -16,7 +16,6 @@ import {
   child
 } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
 
-// Configuración de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCLCNqa083B7EVNnIQrazocXanW0Q43s7Y",
   authDomain: "novacoretransit-7ee86.firebaseapp.com",
