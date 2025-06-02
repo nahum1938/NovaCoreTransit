@@ -1,9 +1,23 @@
+// firebase.js
 console.log("🔥 firebase.js cargado correctamente");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+import {
+  getDatabase,
+  ref,
+  set,
+  get,
+  child
+} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
 
+// 🔐 Configuración obtenida de Firebase Console (opción Config)
 const firebaseConfig = {
   apiKey: "AIzaSyCLCNqa083B7EVNnIQrazocXanW0Q43s7Y",
   authDomain: "novacoretransit-7ee86.firebaseapp.com",
@@ -15,8 +29,10 @@ const firebaseConfig = {
   measurementId: "G-27WD7PSVQW"
 };
 
+// 🔧 Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
 
+// 🌐 Exportar para usar en otros scripts
 export { auth, db };
